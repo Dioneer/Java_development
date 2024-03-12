@@ -27,6 +27,7 @@ public class ChatServer implements TCPConnectionListener{
     @Override
     public synchronized void onConnectionReady(TCPConnection tcpConnection) {
         connections.add(tcpConnection);
+        System.out.println(connections);
         sendToAllConnections("Client connected: "+ tcpConnection);
     }
 

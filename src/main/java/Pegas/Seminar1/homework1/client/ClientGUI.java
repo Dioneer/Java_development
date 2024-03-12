@@ -82,7 +82,6 @@ public class ClientGUI extends JFrame implements TCPConnectionListener {
         });
         if(serverWindow.isFocusableWindow()){
             setVisible(true);
-            connection = new TCPConnection(this, "127.0.0.1", 8081);
                 try(BufferedReader br = new BufferedReader(new FileReader("src/main/java/Pegas/log.txt"))){
                     String st;
                     while((st = br.readLine())!=null) {
@@ -92,6 +91,7 @@ public class ClientGUI extends JFrame implements TCPConnectionListener {
                     throw new RuntimeException(e);
                 }
         }
+        connection = new TCPConnection(this, "127.0.0.1", 8081);
     }
 
     @Override
@@ -104,9 +104,7 @@ public class ClientGUI extends JFrame implements TCPConnectionListener {
         printMsg(value);
     }
     private synchronized void printMsg(String msg){
-        SwingUtilities.invokeLater(()->{
             System.out.println(msg+"\n");
-        });
     }
 
     @Override
