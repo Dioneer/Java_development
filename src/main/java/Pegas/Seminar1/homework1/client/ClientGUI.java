@@ -101,7 +101,7 @@ public class ClientGUI extends JFrame implements TCPConnectionListener {
 
     @Override
     public void onReceiveString(TCPConnection tcpConnection, String value) {
-
+        printMsg(value);
     }
     private synchronized void printMsg(String msg){
         SwingUtilities.invokeLater(()->{
@@ -111,11 +111,11 @@ public class ClientGUI extends JFrame implements TCPConnectionListener {
 
     @Override
     public void onDisconnect(TCPConnection tcpConnection) {
-
+        System.out.println("Connection close");
     }
 
     @Override
     public void onException(TCPConnection tcpConnection, Exception e) {
-
+        System.out.println("Connection exception");
     }
 }
