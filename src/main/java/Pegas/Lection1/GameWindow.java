@@ -2,6 +2,7 @@ package Pegas.Lection1;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class GameWindow extends JFrame {
     private static final int WINDOW_HEIGHT = 555;
@@ -32,4 +33,5 @@ public class GameWindow extends JFrame {
     void startNewGame(int mode, int zX, int zY, int wLen){
         map.startNewGame(mode, zX, zY, wLen);
     }
+
 }
