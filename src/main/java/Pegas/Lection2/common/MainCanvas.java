@@ -1,14 +1,14 @@
-package Pegas.Lection2;
+package Pegas.Lection2.common;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MainCanvas extends JPanel {
-    private final MainWindow controller;
+    private final CanvasRepaintListener controller;
     private long lastFrameTime;
 
 
-    public MainCanvas(MainWindow controller){
+    public MainCanvas(CanvasRepaintListener controller){
         this.controller = controller;
         lastFrameTime = System.nanoTime();
     }

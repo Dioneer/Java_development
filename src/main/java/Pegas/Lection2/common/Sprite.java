@@ -1,4 +1,4 @@
-package Pegas.Lection2;
+package Pegas.Lection2.common;
 
 import java.awt.*;
 

@@ -1,9 +1,13 @@
-package Pegas.Lection2;
+package Pegas.Lection2.circle;
+
+import Pegas.Lection2.common.CanvasRepaintListener;
+import Pegas.Lection2.common.MainCanvas;
+import Pegas.Lection2.common.UpdRen;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class MainWindow extends JFrame {
+public class MainWindow extends JFrame implements CanvasRepaintListener {
     private static final int POS_X = 400;
     private static final int POS_Y= 200;
     private static final int WIDTH= 800;
@@ -31,15 +35,15 @@ public class MainWindow extends JFrame {
     private void update(MainCanvas canvas, float deltaTime) {
         for (int i = 0; i < sprites.length; i++) {
             sprites[i].update(canvas, deltaTime);
-            backGround.update(canvas, deltaTime);
         }
+        backGround.update(canvas, deltaTime);
     }
 
     private void render(MainCanvas canvas,Graphics g) {
         for (int i = 0; i < sprites.length; i++) {
             sprites[i].render(canvas, g);
-            backGround.render(canvas, g);
         }
+        backGround.render(canvas, g);
     }
 
     public static void main(String[] args) {

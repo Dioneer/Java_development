@@ -1,8 +1,11 @@
-package Pegas.Lection2;
+package Pegas.Lection2.circle;
+
+import Pegas.Lection2.common.MainCanvas;
+import Pegas.Lection2.common.UpdRen;
 
 import java.awt.*;
 
-public class BackGround implements UpdRen{
+public class BackGround implements UpdRen {
     private float time;
     private static final float AMPLITUDE =255f/2f;
     private Color color;
