@@ -2,10 +2,11 @@ package Pegas.Seminar2.server;
 
 import Pegas.Seminar2.client.ClientController;
 
+import java.util.List;
+
 public interface ServerView {
-    void disconnectUser(ClientController clientController);
-    boolean connectUser(ClientController clientController);
-    String getHistory();
+    List<ClientController> getClientControllers();
     void message(String string);
-    void setServerView(ServerWindow serverWindow);
+    void answerAll(String text);
+    void appendLog(String text);
 }
