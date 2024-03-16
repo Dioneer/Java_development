@@ -1,11 +1,8 @@
 package Pegas.Seminar2.server;
 
-import Pegas.Seminar2.client.ClientController;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ServerWindow extends JFrame implements ServerView {
     public static final int WIDTH = 400;

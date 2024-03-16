@@ -25,7 +25,7 @@ public class ServerController{
     }
 
     public boolean connectUser(ClientController clientController) {
-        if (work){
+        if (!work){
             return false;
         }
         clientControllers.add(clientController);
