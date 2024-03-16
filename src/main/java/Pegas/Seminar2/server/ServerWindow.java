@@ -11,11 +11,9 @@ public class ServerWindow extends JFrame implements ServerView {
     public static final int WIDTH = 400;
     public static final int HEIGHT = 300;
     private ServerController serverController;
-    private final List<ClientController> clientControllers;
 
     private JButton btnStart, btnStop;
     private JTextArea log;
-    public boolean work;
 
     public ServerWindow(){
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -24,33 +22,11 @@ public class ServerWindow extends JFrame implements ServerView {
         setTitle("Chat server");
         setLocationRelativeTo(null);
         createPanel();
-        clientControllers = new ArrayList<>();
         setVisible(true);
     }
+    @Override
     public void setServerController(ServerController serverController){
         this.serverController = serverController;
-    }
-    public List<ClientController> getClientControllers() {
-        return clientControllers;
-    }
-    @Override
-    public void message(String text){
-        if (!work){
-            return;
-        }
-        appendLog(text);
-        answerAll(text);
-        serverController.saveInLog(text);
-    }
-    @Override
-    public void answerAll(String text){
-        for ( ClientController  clientController: clientControllers){
-            clientController.showOnWindow(text);
-        }
-    }
-    @Override
-    public void appendLog(String text){
-        log.append(text + "\n");
     }
 
     private void createPanel() {
@@ -65,28 +41,19 @@ public class ServerWindow extends JFrame implements ServerView {
         btnStop = new JButton("Stop");
 
         btnStart.addActionListener(e -> {
-            if (work){
-                appendLog("Сервер уже был запущен");
-            } else {
-                work = true;
-                appendLog("Сервер запущен!");
-            }
+            serverController.start();
         });
 
         btnStop.addActionListener(e -> {
-            if (!work){
-                appendLog("Сервер уже был остановлен");
-            } else {
-                work = false;
-                while (!clientControllers.isEmpty()){
-                    serverController.disconnectUser(clientControllers.get(clientControllers.size()-1));
-                }
-                appendLog("Сервер остановлен!");
-            }
+            serverController.stop();
         });
 
         panel.add(btnStart);
         panel.add(btnStop);
         return panel;
+    }
+    @Override
+    public void showMessage(String msg) {
+        log.append(msg + "\n");
     }
 }
