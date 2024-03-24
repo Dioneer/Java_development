@@ -1,5 +1,5 @@
 package Pegas.Seminar3.Hw3.Calculate;
 
-public interface Action<T extends Number,N extends Number> {
-    N apply(T n1, N n2);
+public interface Action<T extends Number> {
+    double apply(T n1, T n2);
 }
