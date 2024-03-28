@@ -20,7 +20,7 @@ public class Philosophy implements Runnable{
         Thread.sleep(5000);
     }
 
-    public synchronized void eat() throws InterruptedException {
+    public void eat() throws InterruptedException {
         if(table.pickUpFork(leftFork, rightFork)) {
             System.out.println("philosophy " + name + " pick up forks: " + leftFork +" and "+ rightFork);
             Thread.sleep(300);
